@@ -30,24 +30,24 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#031524] text-white selection:bg-cyan-400 selection:text-sky-950">
+    <div className="dbu-page selection:bg-sky-200 dark:selection:bg-cyan-400 selection:text-sky-950">
       <PublicNavbar />
 
       <main className="flex-1">
         {/* HERO BANNER */}
-        <section className="relative overflow-hidden py-20 lg:py-28 border-b border-cyan-900/40 bg-gradient-to-b from-[#041d33] to-[#031524]">
+        <section className="relative overflow-hidden py-20 lg:py-28 border-b border-sky-200 dark:border-cyan-900/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-950/70 border border-red-700/60 text-red-400 text-xs font-bold uppercase tracking-wider">
               <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
               24/7 Security Emergency Response
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black dbu-heading tracking-tight leading-tight">
               Emergency Dispatch &{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200">
                 Gate Helpdesk
               </span>
             </h1>
-            <p className="text-cyan-100/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
+            <p className="text-sky-900/75 dark:text-cyan-100/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
               Direct connection to Debre Berhan University gate checkpoints, campus patrol
               commanders, and asset registration officers.
             </p>

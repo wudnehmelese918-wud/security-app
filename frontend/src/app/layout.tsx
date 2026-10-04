@@ -1,6 +1,14 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
+import { ThemeProvider } from '@/context/ThemeContext';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'DBU Security Gate Management System | Debre Berhan University',
@@ -17,10 +25,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body style={{ fontFamily: "'Segoe UI', system-ui, -apple-system, sans-serif" }}>
-        {children}
-        <Toaster />
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
+      <body className="font-sans antialiased">
+        <ThemeProvider>
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

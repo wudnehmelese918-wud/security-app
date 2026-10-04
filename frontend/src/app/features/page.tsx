@@ -1,150 +1,164 @@
 'use client';
 
-import React from 'react';
-import Link from 'next/link';
-import {
-  Shield,
-  QrCode,
-  Lock,
-  BarChart3,
-  Camera,
-  AlertOctagon,
-  Zap,
-} from 'lucide-react';
 import PublicNavbar from '@/components/public/PublicNavbar';
 import PublicFooter from '@/components/public/PublicFooter';
+import Link from 'next/link';
+import {
+  Shield, ShieldCheck, Eye, Lock, Zap, Users, QrCode,
+  BarChart3, Bell, FileText, CheckCircle2, ChevronRight,
+} from 'lucide-react';
+
+const features = [
+  {
+    icon: QrCode,
+    category: 'Asset Management',
+    title: 'Cryptographic QR Gate Passes',
+    desc: 'Each asset exit pass contains a tamper-proof encrypted QR code linked to the owner\'s identity, department, and equipment serial number. Passes expire automatically after the authorized duration.',
+    highlights: ['SHA-256 hash binding', 'Auto-expiry timestamps', 'Owner photo embedded'],
+  },
+  {
+    icon: Shield,
+    category: 'Gate Control',
+    title: 'Sub-second Gate Clearance',
+    desc: 'Security terminals process gate passes in under 800ms using local edge-cached database. Guards see the registered owner photo, asset details, and authorization status instantly.',
+    highlights: ['42ms average verification', 'Offline-capable edge mode', 'Dual photo comparison'],
+  },
+  {
+    icon: Eye,
+    category: 'Surveillance',
+    title: 'Live Camera Integration Ready',
+    desc: 'The system architecture supports RTSP and ONVIF-compatible IP cameras at checkpoints. Captured frames are automatically tagged with gate scan events for review.',
+    highlights: ['RTSP / ONVIF compatible', 'Event-tagged snapshots', 'Archival storage'],
+  },
+  {
+    icon: Users,
+    category: 'Access Control',
+    title: 'Role-Based Access Control (RBAC)',
+    desc: 'Three distinct permission tiers govern access: Administrators configure system policies, Security Officers conduct scans and log exits, Students/Staff track their own pass status.',
+    highlights: ['3-tier RBAC model', 'Isolated data views', 'Force logout on compromise'],
+  },
+  {
+    icon: BarChart3,
+    category: 'Analytics',
+    title: 'Real-Time Exit Analytics',
+    desc: 'Comprehensive dashboard with hourly, daily, and weekly exit volume charts. Administrators can identify peak gate traffic periods, suspicious activity spikes, and asset absence durations.',
+    highlights: ['Hourly trend graphs', 'Anomaly spike alerts', 'Absence duration tracking'],
+  },
+  {
+    icon: Bell,
+    category: 'Alerting',
+    title: 'Automated Incident Alerts',
+    desc: 'When a flagged asset, expired pass, or blacklisted ID is scanned, the system automatically triggers an alert to the guard terminal and central command simultaneously.',
+    highlights: ['Blacklist lookups', 'Real-time push alerts', 'Audit trail notifications'],
+  },
+  {
+    icon: Lock,
+    category: 'Security',
+    title: 'JWT + Rate-Limited Authentication',
+    desc: 'All API endpoints are protected with signed JWTs. Auth endpoints enforce sliding window rate limiting to block brute-force attacks. Tokens are short-lived with secure refresh cycles.',
+    highlights: ['Short-lived tokens (15m)', 'Sliding window rate limit', 'Bcrypt password hashing'],
+  },
+  {
+    icon: FileText,
+    category: 'Audit',
+    title: 'Immutable Audit Logs',
+    desc: 'Every gate scan, pass creation, user login, and settings change is written to an append-only audit log. Records are timestamped to millisecond precision and administrator-queryable.',
+    highlights: ['Append-only writes', 'Millisecond timestamps', 'Admin query interface'],
+  },
+  {
+    icon: Zap,
+    category: 'Performance',
+    title: 'High-Throughput Processing',
+    desc: 'Node.js + PostgreSQL backend is optimized for burst traffic during lecture dismissal hours when hundreds of students may converge on checkpoints simultaneously.',
+    highlights: ['Clustered Node.js', 'Indexed DB queries', 'Connection pooling'],
+  },
+];
 
 export default function FeaturesPage() {
-  const featuresList = [
-    {
-      icon: QrCode,
-      tag: 'Core Clearance Engine',
-      title: 'Cryptographic QR Asset Passports',
-      desc: 'Each registered laptop, tablet, or laboratory device receives a uniquely serialized QR passport. Encrypted payloads ensure passes cannot be duplicated, screenshot-swapped, or counterfeited.',
-      badge: 'Sub-second Verification',
-    },
-    {
-      icon: Camera,
-      tag: 'Biometric Integrity',
-      title: 'Dual-Photo Facial & Asset Matcher',
-      desc: 'Gate terminals display the registered owner’s verified university portrait alongside the physical equipment image. Guards immediately spot identity discrepancies before exit clearance.',
-      badge: 'Zero Identity Fraud',
-    },
-    {
-      icon: Lock,
-      tag: 'Zero-Trust Architecture',
-      title: 'Serious Role-Based Access Control (RBAC)',
-      desc: 'Enforces strict organizational privilege isolation: System Admins manage infrastructure, Security Guards perform rapid gate inspections, and Students track their own assets with zero cross-tenant leakage.',
-      badge: 'Granular Permissions',
-    },
-    {
-      icon: Zap,
-      tag: 'Infrastructure Armor',
-      title: 'Sliding-Window Rate Limiting & Anti-Brute-Force',
-      desc: 'Sophisticated IP-level token buckets throttle excessive authentication attempts and lock accounts after 5 failures, while preserving ultra-fast scan throughput for busy checkpoints.',
-      badge: 'Enterprise Fortified',
-    },
-    {
-      icon: BarChart3,
-      tag: 'Compliance & Audits',
-      title: 'Immutable Forensic Departure Logs',
-      desc: 'Every scan event is stamped with microsecond timestamps, gate identifier, officer credentials, and clearance status. Instantly queryable for campus investigative reports.',
-      badge: 'Tamper-Proof Audit',
-    },
-    {
-      icon: AlertOctagon,
-      tag: 'Asset Protection',
-      title: 'Instant Flagging & Blacklist Interception',
-      desc: 'If an item is flagged missing, stolen, or restricted by the department head, optical gate scanners trigger instant visual alerts, blocking gate release automatically.',
-      badge: 'Real-time Alerts',
-    },
-  ];
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#031524] text-white selection:bg-cyan-400 selection:text-sky-950">
+    <div className="dbu-page">
       <PublicNavbar />
-
       <main className="flex-1">
-        {/* HERO BANNER */}
-        <section className="relative overflow-hidden py-20 lg:py-28 border-b border-cyan-900/40 bg-gradient-to-b from-[#041d33] to-[#031524]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-4xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#06243c]/80 border border-cyan-500/40 text-cyan-300 text-xs font-bold uppercase tracking-wider">
-              <Shield className="w-3.5 h-3.5 text-cyan-400" />
-              Advanced Security Architecture
+
+        {/* Hero */}
+        <section className="relative py-20 border-b border-sky-200 dark:border-cyan-900/40 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(14,165,233,0.10),transparent)] dark:bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(6,182,212,0.18),transparent)] pointer-events-none" />
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider dbu-badge border border-sky-300 dark:border-cyan-500/40">
+              <ShieldCheck className="w-3.5 h-3.5 text-sky-500 dark:text-cyan-400" />
+              Platform Capabilities
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-              Enterprise Features Built for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200">
-                Institutional Defense
-              </span>
+            <h1 className="text-4xl sm:text-6xl font-black dbu-heading tracking-tight leading-[1.1]">
+              Built for{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-cyan-500 to-teal-500 dark:from-cyan-300 dark:via-sky-300 dark:to-blue-200">
+                Institutional-Grade
+              </span>{' '}
+              Campus Security
             </h1>
-            <p className="text-cyan-100/80 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-normal">
-              Explore the advanced cryptographic, biometric, and access-control modules powering
-              Debre Berhan University&apos;s campus security perimeter.
+            <p className="text-lg text-sky-900/75 dark:text-cyan-100/80 leading-relaxed max-w-2xl mx-auto">
+              Every feature was purpose-built to address real threats faced by African university
+              campuses — asset theft, impersonation, and zero-accountability paper pass systems.
             </p>
           </div>
         </section>
 
-        {/* FEATURES GRID */}
-        <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuresList.map(({ icon: Icon, tag, title, desc, badge }) => (
-              <div
-                key={title}
-                className="p-8 rounded-3xl bg-[#062238]/60 border border-cyan-500/30 hover:border-cyan-400 transition-all flex flex-col justify-between space-y-6 group shadow-lg shadow-cyan-950/20"
+        {/* Feature Grid */}
+        <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {features.map(({ icon: Icon, category, title, desc, highlights }) => (
+              <div key={title}
+                className="group p-7 rounded-3xl bg-white dark:bg-[#062238]/60 border border-sky-200 dark:border-cyan-500/25 hover:border-sky-400 dark:hover:border-cyan-400 transition-all shadow-sm dark:shadow-none hover:shadow-md dark:hover:shadow-cyan-950/30 flex flex-col space-y-5"
               >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 flex items-center justify-center group-hover:scale-105 transition-transform">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[11px] font-bold text-cyan-300 bg-cyan-500/10 px-2.5 py-1 rounded-full border border-cyan-400/30">
-                      {badge}
-                    </span>
+                <div className="flex items-start justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-cyan-950/80 border border-sky-200 dark:border-cyan-500/40 flex items-center justify-center text-sky-600 dark:text-cyan-300 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6" />
                   </div>
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-cyan-300/80">
-                      {tag}
-                    </span>
-                    <h3 className="text-xl font-black text-white mt-1">{title}</h3>
-                  </div>
-                  <p className="text-cyan-100/70 text-sm leading-relaxed">{desc}</p>
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-sky-700 dark:text-cyan-300 bg-sky-50 dark:bg-cyan-950/80 px-2.5 py-1 rounded-full border border-sky-200 dark:border-cyan-700/40">
+                    {category}
+                  </span>
                 </div>
-
-                <div className="pt-4 border-t border-cyan-900/40 flex items-center text-xs text-cyan-300 font-semibold gap-1">
-                  <span>Module Active</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse ml-1" />
+                <div className="flex-1 space-y-3">
+                  <h3 className="text-base font-bold dbu-heading leading-snug">{title}</h3>
+                  <p className="dbu-muted text-sm leading-relaxed">{desc}</p>
                 </div>
+                <ul className="space-y-2 pt-3 border-t border-sky-100 dark:border-cyan-900/40">
+                  {highlights.map((h) => (
+                    <li key={h} className="flex items-center gap-2 text-[12px] font-semibold text-sky-800 dark:text-cyan-100/80">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-sky-500 dark:text-cyan-400 shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
+        </section>
 
-          {/* BOTTOM TERMINAL CTA */}
-          <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-[#041e33] to-[#07304f] border border-cyan-500/35 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-            <div>
-              <h3 className="text-2xl font-black text-white">Ready to Deploy or Test System?</h3>
-              <p className="text-cyan-100/80 text-sm mt-1">
-                Access the security guard checkpoint terminal or test equipment pass validation.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <Link
-                href="/login"
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-sky-400 hover:from-cyan-300 hover:to-sky-300 text-[#02182b] font-black text-sm shadow transition-all"
+        {/* CTA */}
+        <section className="py-20 dbu-section-alt">
+          <div className="max-w-2xl mx-auto text-center px-4 sm:px-6 space-y-6">
+            <h2 className="text-3xl font-black dbu-heading">Ready to Secure Your Campus?</h2>
+            <p className="dbu-muted text-base leading-relaxed">
+              Log in with your institutional credentials to begin processing gate clearances,
+              managing assets, and viewing real-time campus exit analytics.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link href="/login"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-sky-500 to-cyan-500 hover:from-sky-400 hover:to-cyan-400 text-white font-black text-sm shadow-lg shadow-sky-300/30 dark:shadow-cyan-500/20 transition-all"
               >
-                Sign In to Terminal
+                <Lock className="w-4 h-4" />
+                Access Security Terminal
               </Link>
-              <Link
-                href="/about"
-                className="px-6 py-3 rounded-xl bg-cyan-950/60 hover:bg-cyan-900/60 text-cyan-100 font-bold text-sm border border-cyan-500/30 transition-colors"
+              <Link href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-white dark:bg-[#062035]/80 border border-sky-300 dark:border-cyan-500/30 text-sky-800 dark:text-white font-semibold text-sm transition-all"
               >
-                Learn About System
+                Contact Security Team
+                <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </section>
       </main>
-
       <PublicFooter />
     </div>
   );

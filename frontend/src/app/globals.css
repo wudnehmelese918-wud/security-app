@@ -2,58 +2,208 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────
+   LIGHT MODE  (blue-white, approx to white)
+   Background: very light sky blue (#f0f8ff → #ffffff)
+   Text:       deep navy (#0c2340) for headings, #1e3a5f for body
+   Accents:    cyan/sky blue scale
+───────────────────────────────────────────── */
 @layer base {
   :root {
-    --background: 204 100% 98%;
-    --foreground: 204 80% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 204 80% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 204 80% 10%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 204 100% 98%;
-    --secondary: 199 70% 93%;
-    --secondary-foreground: 204 80% 15%;
-    --muted: 204 50% 94%;
-    --muted-foreground: 204 30% 40%;
-    --accent: 188 86% 45%;
-    --accent-foreground: 204 100% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 204 40% 88%;
-    --input: 204 40% 88%;
-    --ring: 199 89% 48%;
-    --radius: 0.5rem;
+    --background:    206 100% 98%;   /* #f0f8ff  — near-white sky */
+    --foreground:    213 55%  15%;   /* #0f2848  — deep navy text */
+    --card:          0   0%  100%;   /* #ffffff */
+    --card-foreground: 213 55% 15%;
+    --popover:       0   0%  100%;
+    --popover-foreground: 213 55% 15%;
+    --primary:       199 89% 42%;   /* #0e90d2  — strong sky blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary:     204 60% 93%;   /* #daeeff */
+    --secondary-foreground: 213 55% 20%;
+    --muted:         204 50% 94%;   /* #e4f2fb */
+    --muted-foreground: 204 30% 40%; /* #456b85 */
+    --accent:        188 70% 40%;   /* #1eb8c4  — teal accent */
+    --accent-foreground: 0 0% 100%;
+    --destructive:   0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border:        204 40% 86%;   /* #c4dcea */
+    --input:         204 40% 88%;
+    --ring:          199 89% 42%;
+    --radius:        0.5rem;
+
+    /* Custom page-background layers */
+    --page-bg:       #f0f8ff;
+    --page-bg-2:     #e8f4fd;
+    --section-bg:    #ffffff;
+    --section-border:#c8dff0;
+    --heading:       #0c2340;
+    --subheading:    #1e3a5f;
+    --body-text:     #1e3a5f;
+    --muted-text:    #456b85;
+    --badge-bg:      #daeeff;
+    --badge-text:    #0c4a7c;
+    --card-bg:       #ffffff;
+    --card-shadow:   0 2px 16px rgba(14,144,210,0.10);
+    --nav-bg:        rgba(240,248,255,0.96);
+    --nav-border:    #c4dcea;
+    --input-bg:      #f7fbff;
+    --footer-bg:     #0c2340;
+    --sidebar-bg:    #082240;
+    --sidebar-active:#0ea5e9;
+    --sidebar-text:  #bde0f7;
   }
+
+/* ─────────────────────────────────────────────
+   DARK / NIGHT MODE
+   Background: very deep navy (#041624)
+   Text:       light sky (#e0f2fe) for headings, #b8d8f0 for body
+───────────────────────────────────────────── */
   .dark {
-    --background: 206 75% 8%;
-    --foreground: 199 60% 96%;
-    --card: 206 65% 12%;
-    --card-foreground: 199 60% 96%;
-    --popover: 206 65% 12%;
-    --popover-foreground: 199 60% 96%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 206 80% 8%;
-    --secondary: 206 40% 18%;
-    --secondary-foreground: 199 60% 96%;
-    --muted: 206 40% 18%;
-    --muted-foreground: 199 30% 65%;
-    --accent: 188 86% 50%;
-    --accent-foreground: 206 80% 8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 206 40% 20%;
-    --input: 206 40% 20%;
-    --ring: 188 86% 50%;
+    --background:    213 75%  7%;    /* #061422  — deepest navy */
+    --foreground:    204 80%  90%;   /* #c8e8f8  — light sky text */
+    --card:          213 65%  11%;   /* #0c2035 */
+    --card-foreground: 204 80% 90%;
+    --popover:       213 65%  11%;
+    --popover-foreground: 204 80% 90%;
+    --primary:       199 89%  48%;   /* #0ea5e9  — bright cyan */
+    --primary-foreground: 213 75% 5%;
+    --secondary:     206 40%  18%;   /* #192f44 */
+    --secondary-foreground: 204 70% 85%;
+    --muted:         206 40%  16%;
+    --muted-foreground: 199 40% 62%; /* #6db8d6 */
+    --accent:        188 86%  50%;   /* #06d0e0 */
+    --accent-foreground: 213 75% 5%;
+    --destructive:   0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border:        206 40%  20%;   /* #1d3449 */
+    --input:         206 40%  18%;
+    --ring:          199 89%  48%;
+
+    --page-bg:       #041624;
+    --page-bg-2:     #051d33;
+    --section-bg:    #0a1e32;
+    --section-border:#15304a;
+    --heading:       #e0f2fe;
+    --subheading:    #b8d8f0;
+    --body-text:     #9ecce8;
+    --muted-text:    #6da8c8;
+    --badge-bg:      #0a2d45;
+    --badge-text:    #67d8f4;
+    --card-bg:       #0c2035;
+    --card-shadow:   0 2px 20px rgba(6,182,212,0.12);
+    --nav-bg:        rgba(4,22,36,0.95);
+    --nav-border:    #15304a;
+    --input-bg:      #071a2a;
+    --footer-bg:     #020e1a;
+    --sidebar-bg:    #030f1c;
+    --sidebar-active:#0ea5e9;
+    --sidebar-text:  #7fcbee;
   }
 }
 
+/* ─── Base Styles ─── */
 @layer base {
   * { @apply border-border; }
-  body { @apply bg-background text-foreground; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--page-bg);
+    color: var(--body-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading);
+  }
+
+  p {
+    color: var(--body-text);
+  }
 }
 
+/* ─── Smooth theme transition on all elements ─── */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.25s;
+  transition-timing-function: ease;
+}
+
+/* exclude animations from transition bleed */
+.animate-spin, .animate-ping, .animate-bounce, .animate-pulse {
+  transition: none;
+}
+
+/* ─── DBU Utility classes ─── */
+.dbu-page {
+  background-color: var(--page-bg);
+  color: var(--body-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dbu-heading {
+  color: var(--heading);
+}
+
+.dbu-subheading {
+  color: var(--subheading);
+}
+
+.dbu-body {
+  color: var(--body-text);
+}
+
+.dbu-muted {
+  color: var(--muted-text);
+}
+
+.dbu-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--section-border);
+  box-shadow: var(--card-shadow);
+}
+
+.dbu-nav {
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.dbu-section-alt {
+  background-color: var(--page-bg-2);
+  border-top: 1px solid var(--section-border);
+  border-bottom: 1px solid var(--section-border);
+}
+
+.dbu-badge {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+}
+
+.dbu-input {
+  background-color: var(--input-bg);
+  border: 1px solid var(--section-border);
+  color: var(--heading);
+}
+
+.dbu-input::placeholder {
+  color: var(--muted-text);
+  opacity: 0.7;
+}
+
+/* ─── Print Styles ─── */
 @media print {
   .no-print { display: none !important; }
   .print-only { display: block !important; }
+}
+
+/* Slow spin for theme icon */
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
 }

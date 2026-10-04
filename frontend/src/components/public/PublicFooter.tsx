@@ -5,7 +5,7 @@ import { Phone, Mail, MapPin, FileCheck2, Scale, AlertTriangle, ShieldCheck } fr
 
 export default function PublicFooter() {
   return (
-    <footer className="bg-[#021424] text-cyan-100 border-t border-cyan-900/50">
+    <footer className="bg-[#021424] text-cyan-100 border-t border-sky-900/60 dark:border-cyan-900/50">
       {/* Top emergency dispatch banner */}
       <div className="bg-gradient-to-r from-[#031c30] via-[#052844] to-[#031c30] border-b border-cyan-700/40 py-3.5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">

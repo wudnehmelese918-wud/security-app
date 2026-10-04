@@ -25,7 +25,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   if (!token) return null;
 
   return (
-    <div className="flex h-screen bg-[#f0f9ff]/70 overflow-hidden font-sans">
+    <div className="flex h-screen bg-sky-50 dark:bg-[#041624] overflow-hidden font-sans transition-colors duration-300">
       <Sidebar />
       <div className="flex-1 flex flex-col min-w-0">
         <Header />
