@@ -19,19 +19,33 @@ const app = express();
 
 // Security & Utility Middleware
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
-app.use(cors({ origin: config.FRONTEND_URL, credentials: true }));
+app.use(cors({ origin: true, credentials: true }));
 app.use(morgan('dev'));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Ensure DB is connected for serverless environments (cached connection)
+app.use(async (_req, _res, next) => {
+  try {
+    await connectDB();
+  } catch (err) {
+    console.error('Database connection error:', err);
+  }
+  next();
+});
+
 // Apply general API rate limiter to all /api routes
 app.use('/api', generalApiLimiter);
 
-// Ensure upload subdirectories exist
-['photos', 'equipment', 'qrcodes'].forEach((folder) => {
-  const dir = path.join(config.UPLOAD_DIR, folder);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-});
+// Ensure upload subdirectories exist (safely ignored in read-only serverless environments)
+try {
+  ['photos', 'equipment', 'qrcodes'].forEach((folder) => {
+    const dir = path.join(config.UPLOAD_DIR, folder);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  });
+} catch {
+  // Read-only filesystem in serverless environments
+}
 
 // Static uploads folder
 app.use('/uploads', express.static(config.UPLOAD_DIR));
@@ -61,7 +75,7 @@ app.use('/api/dashboard', dashboardRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-// Start server
+// Start server when run in standalone / local mode
 const start = async () => {
   await connectDB();
   const { seedDatabase } = await import('./config/seed');
@@ -71,6 +85,8 @@ const start = async () => {
   });
 };
 
-start();
+if (!process.env.VERCEL) {
+  start();
+}
 
 export default app;

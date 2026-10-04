@@ -1,0 +1,15 @@
+{
+  "name": "dbu-security-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DBU Security Guard & Gate Asset Management System",
+  "scripts": {
+    "dev": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['run', 'dev'], { cwd: './backend', stdio: 'inherit', shell: true }); spawn('npm', ['run', 'dev'], { cwd: './frontend', stdio: 'inherit', shell: true });\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "start": "node -e \"const { spawn } = require('child_process'); spawn('npm', ['start'], { cwd: './backend', stdio: 'inherit', shell: true }); spawn('npm', ['start'], { cwd: './frontend', stdio: 'inherit', shell: true });\""
+  }
+}
