@@ -1,29 +1,29 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, FileCheck2, Scale, AlertTriangle } from 'lucide-react';
+import { Phone, Mail, MapPin, FileCheck2, Scale, AlertTriangle, ShieldCheck } from 'lucide-react';
 
 export default function PublicFooter() {
   return (
-    <footer className="bg-[#071326] text-blue-100 border-t border-blue-900/50">
+    <footer className="bg-[#021424] text-cyan-100 border-t border-cyan-900/50">
       {/* Top emergency dispatch banner */}
-      <div className="bg-gradient-to-r from-blue-950 via-[#0a1e3b] to-blue-950 border-b border-blue-800/40 py-3.5 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gradient-to-r from-[#031c30] via-[#052844] to-[#031c30] border-b border-cyan-700/40 py-3.5 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-2 text-amber-300 font-semibold">
-            <AlertTriangle className="w-4 h-4 shrink-0 text-amber-400" />
+          <div className="flex flex-wrap items-center gap-2 text-cyan-300 font-semibold">
+            <AlertTriangle className="w-4 h-4 shrink-0 text-cyan-400" />
             <span>24/7 CAMPUS SECURITY DISPATCH:</span>
-            <span className="text-white font-mono bg-blue-900/60 px-2 py-0.5 rounded border border-blue-700/50">
+            <span className="text-white font-mono bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/40">
               Direct: +251 (0) 11 681 5440
             </span>
-            <span className="text-white font-mono bg-blue-900/60 px-2 py-0.5 rounded border border-blue-700/50">
+            <span className="text-white font-mono bg-cyan-950/80 px-2 py-0.5 rounded border border-cyan-500/40">
               Emergency: 991
             </span>
           </div>
-          <div className="flex items-center gap-4 text-blue-300">
+          <div className="flex flex-wrap items-center gap-4 text-cyan-200/80">
             <span>Main Checkpoint Gate: Operational</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>Science & Technology Gate: Operational</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>Dormitory Access Gate: Operational</span>
           </div>
         </div>
@@ -35,7 +35,7 @@ export default function PublicFooter() {
           {/* Column 1: Institutional Overview */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3.5">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden bg-white/10 p-0.5 border-2 border-amber-400 shadow-lg shrink-0">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden bg-white/10 p-0.5 border-2 border-cyan-400 shadow-lg shadow-cyan-500/20 shrink-0">
                 <Image
                   src="/dbu-logo.png"
                   alt="Debre Berhan University Crest"
@@ -48,30 +48,30 @@ export default function PublicFooter() {
                 <p className="text-white font-black text-lg tracking-wide">
                   DEBRE BERHAN UNIVERSITY
                 </p>
-                <p className="text-amber-400 text-xs font-semibold">
+                <p className="text-cyan-300 text-xs font-semibold">
                   Directorate of Campus Security & Assets
                 </p>
               </div>
             </div>
 
-            <p className="text-blue-200/70 text-sm leading-relaxed pr-6">
+            <p className="text-cyan-100/70 text-sm leading-relaxed pr-6">
               The official centralized security infrastructure engineered for Debre Berhan
               University (DBU). Providing real-time asset enrollment, cryptographic QR gate pass
               clearance, biometric owner verification, and instant digital departure audits across
               all campus entry points.
             </p>
 
-            <div className="space-y-2 pt-2 text-xs text-blue-200/80">
+            <div className="space-y-2 pt-2 text-xs text-cyan-200/80">
               <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span>Debre Berhan University Main Campus, Amhara Region, Ethiopia</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
+                <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span>+251 (0) 11 681 5440 / Extension 114 (Security Control)</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
                 <span>security@dbu.edu.et / info@dbu.edu.et</span>
               </div>
             </div>
@@ -79,37 +79,37 @@ export default function PublicFooter() {
 
           {/* Column 2: System Navigation */}
           <div className="space-y-3">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider border-b border-blue-800/60 pb-2">
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider border-b border-cyan-800/60 pb-2">
               System Modules
             </h4>
-            <ul className="space-y-2 text-sm text-blue-200/70">
+            <ul className="space-y-2 text-sm text-cyan-100/70">
               <li>
-                <Link href="/" className="hover:text-amber-400 transition-colors">
+                <Link href="/" className="hover:text-cyan-300 transition-colors">
                   Gate Clearance Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-amber-400 transition-colors">
+                <Link href="/about" className="hover:text-cyan-300 transition-colors">
                   About Security Infrastructure
                 </Link>
               </li>
               <li>
-                <Link href="/features" className="hover:text-amber-400 transition-colors">
+                <Link href="/features" className="hover:text-cyan-300 transition-colors">
                   Verification Features
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-amber-400 transition-colors">
+                <Link href="/contact" className="hover:text-cyan-300 transition-colors">
                   Emergency & Gate Helpdesk
                 </Link>
               </li>
               <li>
-                <Link href="/login" className="hover:text-amber-400 transition-colors">
+                <Link href="/login" className="hover:text-cyan-300 transition-colors">
                   Staff / Guard Portal Login
                 </Link>
               </li>
               <li>
-                <Link href="/dashboard" className="hover:text-amber-400 transition-colors">
+                <Link href="/dashboard" className="hover:text-cyan-300 transition-colors">
                   Officer Terminal
                 </Link>
               </li>
@@ -118,10 +118,10 @@ export default function PublicFooter() {
 
           {/* Column 3: Checkpoints & Campus Units */}
           <div className="space-y-3">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider border-b border-blue-800/60 pb-2">
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider border-b border-cyan-800/60 pb-2">
               Campus Checkpoints
             </h4>
-            <ul className="space-y-2 text-sm text-blue-200/70">
+            <ul className="space-y-2 text-sm text-cyan-100/70">
               <li>• Gate A: Main Administrative Entrance</li>
               <li>• Gate B: Science & Technology Complex</li>
               <li>• Gate C: Atse Zera Yacob Hall Gate</li>
@@ -133,11 +133,11 @@ export default function PublicFooter() {
 
           {/* Column 4: Compliance & Legal License */}
           <div className="space-y-3">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider border-b border-blue-800/60 pb-2 flex items-center gap-1.5">
-              <Scale className="w-4 h-4 text-amber-400" />
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider border-b border-cyan-800/60 pb-2 flex items-center gap-1.5">
+              <Scale className="w-4 h-4 text-cyan-400" />
               Governance & License
             </h4>
-            <div className="space-y-2 text-xs text-blue-200/70">
+            <div className="space-y-2 text-xs text-cyan-100/70">
               <p>
                 <strong>Institutional License:</strong> DBU-ESG-2026. Proprietary software
                 developed under the authority of Debre Berhan University Senate Security Protocol.
@@ -147,8 +147,8 @@ export default function PublicFooter() {
                 Article 142, all electronic property (laptops, lab equipment, tablets) must possess a
                 valid digital pass prior to exit.
               </p>
-              <div className="pt-2 flex items-center gap-1.5 text-amber-400">
-                <FileCheck2 className="w-4 h-4" />
+              <div className="pt-2 flex items-center gap-1.5 text-cyan-300">
+                <FileCheck2 className="w-4 h-4 text-cyan-400" />
                 <span className="font-semibold">ISO/IEC 27001 Aligned</span>
               </div>
             </div>
@@ -156,8 +156,8 @@ export default function PublicFooter() {
         </div>
 
         {/* Detailed Institutional License & Software Attribution Footage */}
-        <div className="mt-12 pt-8 border-t border-blue-900/60 text-xs text-blue-300/60 space-y-4">
-          <div className="bg-blue-950/40 border border-blue-800/40 rounded-xl p-4 leading-relaxed">
+        <div className="mt-12 pt-8 border-t border-cyan-900/60 text-xs text-cyan-300/60 space-y-4">
+          <div className="bg-[#041d33]/80 border border-cyan-800/40 rounded-xl p-4 leading-relaxed">
             <p className="font-semibold text-white mb-1">
               INSTITUTIONAL SOFTWARE LICENSE & USAGE NOTICE:
             </p>
@@ -177,16 +177,16 @@ export default function PublicFooter() {
               Directorate of Campus Security & Assets.
             </p>
             <div className="flex items-center gap-6">
-              <Link href="/about" className="hover:text-amber-400 transition-colors">
+              <Link href="/about" className="hover:text-cyan-300 transition-colors">
                 Security Policy
               </Link>
-              <Link href="/features" className="hover:text-amber-400 transition-colors">
+              <Link href="/features" className="hover:text-cyan-300 transition-colors">
                 System Terms
               </Link>
-              <Link href="/contact" className="hover:text-amber-400 transition-colors">
+              <Link href="/contact" className="hover:text-cyan-300 transition-colors">
                 Emergency Hotline
               </Link>
-              <span className="text-amber-400 font-mono">v2.4.0-Production</span>
+              <span className="text-cyan-400 font-mono">v2.4.0-Production</span>
             </div>
           </div>
         </div>

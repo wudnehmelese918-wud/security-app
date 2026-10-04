@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
-import { Eye, EyeOff, Lock, Mail, ArrowLeft, KeyRound } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail, ArrowLeft, KeyRound, Shield } from 'lucide-react';
 import { useAuthStore } from '@/store/auth.store';
 import { api } from '@/lib/api';
 import { Button } from '@/components/ui/button';
@@ -62,22 +62,22 @@ export default function LoginPage() {
 
   return (
     <div
-      className="min-h-screen flex items-stretch relative overflow-hidden"
+      className="min-h-screen flex items-stretch relative overflow-hidden selection:bg-cyan-400 selection:text-sky-950"
       style={{
-        backgroundImage: "url('/campus-bg.jpg')",
+        backgroundImage: "url('/carousel/campus-4.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/40 z-0" />
+      {/* Water blue dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#031524]/95 via-[#041d33]/85 to-[#021424]/60 z-0" />
 
       {/* Left branding panel */}
       <div className="relative z-10 flex-1 hidden md:flex flex-col justify-between px-16 py-12 max-w-[55%]">
         <div>
           {/* Official DBU Logo */}
           <Link href="/" className="inline-flex items-center gap-4 mb-8 group">
-            <div className="relative w-16 h-16 rounded-full overflow-hidden bg-white/10 p-0.5 border-2 border-yellow-400 shadow-xl shrink-0 group-hover:scale-105 transition-transform">
+            <div className="relative w-16 h-16 rounded-full overflow-hidden bg-white/10 p-0.5 border-2 border-cyan-400 shadow-xl shadow-cyan-500/25 shrink-0 group-hover:scale-105 transition-transform">
               <Image
                 src="/dbu-logo.png"
                 alt="Debre Berhan University Official Crest"
@@ -88,19 +88,21 @@ export default function LoginPage() {
               />
             </div>
             <div>
-              <p className="text-white font-black text-2xl leading-tight tracking-wide group-hover:text-yellow-400 transition-colors">
+              <p className="text-white font-black text-2xl leading-tight tracking-wide group-hover:text-cyan-300 transition-colors">
                 DBU Security
               </p>
-              <p className="text-yellow-400 text-sm font-semibold">Guard & Gate Clearance System</p>
+              <p className="text-cyan-300 text-sm font-semibold">Guard & Gate Clearance System</p>
             </div>
           </Link>
 
           {/* Tagline */}
           <h1 className="text-5xl font-black text-white leading-tight mb-6 drop-shadow-lg">
             Guarding Debre Berhan.<br />
-            <span className="text-yellow-400">Zero-Compromise Security.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200">
+              Zero-Compromise Security.
+            </span>
           </h1>
-          <p className="text-white/80 text-lg leading-relaxed max-w-lg">
+          <p className="text-cyan-100/80 text-lg leading-relaxed max-w-lg">
             Debre Berhan University&apos;s digital security platform — track equipment, verify
             biometric identity, and enforce multi-role gate access in real time.
           </p>
@@ -112,8 +114,8 @@ export default function LoginPage() {
               'Strict Role-Based Access Control (Admin, Guard, Student)',
               'Instant cryptographic QR validation & audit trail',
             ].map((text) => (
-              <div key={text} className="flex items-center gap-3 text-sm text-blue-200/90">
-                <span className="w-2 h-2 rounded-full bg-yellow-400" />
+              <div key={text} className="flex items-center gap-3 text-sm text-cyan-200/90">
+                <span className="w-2 h-2 rounded-full bg-cyan-400" />
                 <span>{text}</span>
               </div>
             ))}
@@ -124,7 +126,7 @@ export default function LoginPage() {
         <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-yellow-400 hover:text-yellow-300 font-semibold transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-cyan-300 hover:text-cyan-200 font-semibold transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Return to Public University Portal</span>
@@ -137,19 +139,19 @@ export default function LoginPage() {
         <div
           className="w-full max-w-md rounded-3xl p-8 space-y-6 shadow-2xl"
           style={{
-            background: 'rgba(10, 25, 48, 0.75)',
+            background: 'rgba(4, 25, 45, 0.85)',
             backdropFilter: 'blur(30px)',
             WebkitBackdropFilter: 'blur(30px)',
-            border: '1.5px solid rgba(255,255,255,0.18)',
+            border: '1.5px solid rgba(6, 182, 212, 0.35)',
           }}
         >
           {/* Top Return link for mobile */}
           <div className="flex md:hidden items-center justify-between">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-xs text-yellow-400 font-bold"
+              className="inline-flex items-center gap-2 text-xs text-cyan-300 font-bold"
             >
-              <div className="w-6 h-6 rounded-full overflow-hidden border border-yellow-400">
+              <div className="w-6 h-6 rounded-full overflow-hidden border border-cyan-400">
                 <Image
                   src="/dbu-logo.png"
                   alt="DBU Logo"
@@ -161,13 +163,13 @@ export default function LoginPage() {
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Public Site</span>
             </Link>
-            <span className="text-xs text-white/50">DBU Portal</span>
+            <span className="text-xs text-cyan-200/60">DBU Portal</span>
           </div>
 
           {/* Card header */}
           <div>
             <h2 className="text-2xl font-black text-white">Sign In to Terminal</h2>
-            <p className="text-white/65 text-sm mt-1">
+            <p className="text-cyan-100/70 text-sm mt-1">
               Authorized credentials required for gate terminal operations
             </p>
           </div>
@@ -176,16 +178,16 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Email */}
             <div className="space-y-1.5">
-              <Label htmlFor="email" className="text-white/80 text-sm font-semibold">
+              <Label htmlFor="email" className="text-cyan-100 text-sm font-semibold">
                 University Email Address
               </Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/45" />
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-cyan-300/50" />
                 <Input
                   id="email"
                   type="email"
                   placeholder="admin@dbu.edu.et"
-                  className="pl-10 h-11 bg-white/10 border-white/20 text-white placeholder:text-white/35 focus-visible:ring-yellow-400/50 focus-visible:border-yellow-400"
+                  className="pl-10 h-11 bg-white/5 border-cyan-500/30 text-white placeholder:text-cyan-300/30 focus-visible:ring-cyan-400/50 focus-visible:border-cyan-400"
                   {...register('email')}
                 />
               </div>
@@ -194,22 +196,22 @@ export default function LoginPage() {
 
             {/* Password */}
             <div className="space-y-1.5">
-              <Label htmlFor="password" className="text-white/80 text-sm font-semibold">
+              <Label htmlFor="password" className="text-cyan-100 text-sm font-semibold">
                 Password
               </Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/45" />
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-cyan-300/50" />
                 <Input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
                   placeholder="••••••••"
-                  className="pl-10 pr-10 h-11 bg-white/10 border-white/20 text-white placeholder:text-white/35 focus-visible:ring-yellow-400/50 focus-visible:border-yellow-400"
+                  className="pl-10 pr-10 h-11 bg-white/5 border-cyan-500/30 text-white placeholder:text-cyan-300/30 focus-visible:ring-cyan-400/50 focus-visible:border-cyan-400"
                   {...register('password')}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-white/45 hover:text-white transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-cyan-300/60 hover:text-white transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -223,11 +225,11 @@ export default function LoginPage() {
             <Button
               type="submit"
               disabled={loading}
-              className="w-full h-11 bg-yellow-400 hover:bg-yellow-300 text-blue-950 font-black text-sm tracking-wide shadow-lg mt-2 transition-all"
+              className="w-full h-11 bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 hover:from-cyan-300 hover:to-sky-300 text-[#02182b] font-black text-sm tracking-wide shadow-lg shadow-cyan-500/25 mt-2 transition-all"
             >
               {loading ? (
                 <span className="flex items-center justify-center gap-2">
-                  <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-950" />
+                  <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#02182b]" />
                   Verifying Credentials...
                 </span>
               ) : (
@@ -237,15 +239,15 @@ export default function LoginPage() {
           </form>
 
           {/* Quick Demo Switcher */}
-          <div className="pt-2 border-t border-white/15 space-y-2">
-            <p className="text-[11px] font-semibold text-yellow-400 uppercase tracking-wider flex items-center gap-1.5">
-              <KeyRound className="w-3.5 h-3.5" /> Quick Demo Role Switcher:
+          <div className="pt-2 border-t border-cyan-800/40 space-y-2">
+            <p className="text-[11px] font-semibold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
+              <KeyRound className="w-3.5 h-3.5 text-cyan-400" /> Quick Demo Role Switcher:
             </p>
             <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
                 onClick={() => fillCredentials('admin@dbu.edu.et')}
-                className="py-1.5 px-2 rounded-lg bg-purple-900/60 hover:bg-purple-800 text-purple-200 border border-purple-500/40 text-[11px] font-bold transition-colors truncate"
+                className="py-1.5 px-2 rounded-lg bg-cyan-950/80 hover:bg-cyan-900 text-cyan-200 border border-cyan-500/40 text-[11px] font-bold transition-colors truncate"
                 title="Admin Role"
               >
                 Admin
@@ -253,7 +255,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => fillCredentials('guard@dbu.edu.et')}
-                className="py-1.5 px-2 rounded-lg bg-blue-900/60 hover:bg-blue-800 text-blue-200 border border-blue-500/40 text-[11px] font-bold transition-colors truncate"
+                className="py-1.5 px-2 rounded-lg bg-sky-950/80 hover:bg-sky-900 text-sky-200 border border-sky-500/40 text-[11px] font-bold transition-colors truncate"
                 title="Security Guard Role"
               >
                 Guard
@@ -261,20 +263,20 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => fillCredentials('guest@dbu.edu.et')}
-                className="py-1.5 px-2 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 border border-emerald-500/40 text-[11px] font-bold transition-colors truncate"
+                className="py-1.5 px-2 rounded-lg bg-teal-950/80 hover:bg-teal-900 text-teal-200 border border-teal-500/40 text-[11px] font-bold transition-colors truncate"
                 title="Student / Guest Role"
               >
                 Student
               </button>
             </div>
-            <p className="text-[10px] text-white/40 text-center">
-              Password for all demo accounts: <code className="text-yellow-300">password123</code>
+            <p className="text-[10px] text-cyan-200/50 text-center">
+              Password for all demo accounts: <code className="text-cyan-300">password123</code>
             </p>
           </div>
 
           {/* Divider */}
-          <div className="border-t border-white/10 pt-3">
-            <p className="text-center text-white/40 text-[11px]">
+          <div className="border-t border-cyan-800/40 pt-3">
+            <p className="text-center text-cyan-200/50 text-[11px]">
               © {new Date().getFullYear()} Debre Berhan University · Security Directorate
             </p>
           </div>

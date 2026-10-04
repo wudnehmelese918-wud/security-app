@@ -11,28 +11,30 @@ import {
   CheckCircle2,
   Building2,
   Layers,
+  Sparkles,
 } from 'lucide-react';
 import PublicNavbar from '@/components/public/PublicNavbar';
 import PublicFooter from '@/components/public/PublicFooter';
+import CampusCarousel from '@/components/home/CampusCarousel';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#081528] text-white selection:bg-amber-400 selection:text-blue-950">
+    <div className="min-h-screen flex flex-col bg-[#031524] text-white selection:bg-cyan-400 selection:text-sky-950">
       <PublicNavbar />
 
       <main className="flex-1">
         {/* HERO SECTION */}
-        <section className="relative overflow-hidden pt-12 pb-24 lg:pt-20 lg:pb-32 border-b border-blue-900/40">
-          {/* Subtle glow / grid background decoration */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(26,58,107,0.5),rgba(255,255,255,0))] pointer-events-none" />
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-blue-600/15 blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute top-1/3 right-10 w-[300px] h-[250px] bg-amber-500/10 blur-[90px] rounded-full pointer-events-none" />
+        <section className="relative overflow-hidden pt-12 pb-20 lg:pt-16 lg:pb-28 border-b border-cyan-900/40">
+          {/* Subtle water glow / radial background decoration */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(6,182,212,0.25),rgba(255,255,255,0))] pointer-events-none" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-cyan-500/15 blur-[140px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/3 right-10 w-[350px] h-[300px] bg-sky-400/15 blur-[110px] rounded-full pointer-events-none" />
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-4xl mx-auto space-y-6">
               {/* Badge */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-blue-900/60 border border-blue-700/60 shadow-inner">
-                <div className="w-6 h-6 rounded-full overflow-hidden border border-amber-400 shrink-0">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#07243c]/80 border border-cyan-500/40 shadow-inner">
+                <div className="w-6 h-6 rounded-full overflow-hidden border border-cyan-400 shrink-0">
                   <Image
                     src="/dbu-logo.png"
                     alt="DBU Emblem"
@@ -42,50 +44,50 @@ export default function HomePage() {
                     priority
                   />
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-blue-200">
+                <span className="text-xs font-bold uppercase tracking-wider text-cyan-200">
                   Debre Berhan University · Security Directorate
                 </span>
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                <span className="text-[11px] font-semibold text-amber-400">Ver. 2.4.0</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                <span className="text-[11px] font-semibold text-cyan-300">Ver. 2.4.0</span>
               </div>
 
               {/* Main Headline */}
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.08] text-white">
                 Intelligent Campus Security &{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-300 to-blue-200">
                   Gate Clearance
                 </span>
               </h1>
 
               {/* Subtitle */}
-              <p className="text-lg sm:text-xl text-blue-200/80 leading-relaxed max-w-3xl mx-auto font-normal">
+              <p className="text-lg sm:text-xl text-cyan-100/80 leading-relaxed max-w-3xl mx-auto font-normal">
                 Protecting over 30,000 university assets, students, and staff across Debre Berhan
                 University. High-speed encrypted QR pass validation, real-time biometric matching,
                 and zero-loss asset accountability at every gate.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
                 <Link
                   href="/login"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-[#081528] font-black text-base shadow-xl shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.99] transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 hover:from-cyan-300 hover:to-sky-300 text-[#02182b] font-black text-base shadow-xl shadow-cyan-500/25 hover:scale-[1.02] active:scale-[0.99] transition-all"
                 >
-                  <Lock className="w-5 h-5 text-[#081528]" />
+                  <Lock className="w-5 h-5 text-[#02182b]" />
                   <span>Access Security Terminal</span>
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
 
                 <Link
                   href="/features"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-base border border-white/20 transition-all hover:border-amber-400/50"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#062035]/80 hover:bg-[#082a47] text-white font-bold text-base border border-cyan-500/30 transition-all hover:border-cyan-400"
                 >
-                  <Shield className="w-4 h-4 text-amber-400" />
+                  <Shield className="w-4 h-4 text-cyan-400" />
                   <span>Explore Security Features</span>
                 </Link>
               </div>
 
               {/* Trust & Performance Metrics */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-12 border-t border-blue-900/60 mt-12 text-left">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-10 border-t border-cyan-900/40 mt-10 text-left">
                 {[
                   {
                     value: '30,000+',
@@ -110,15 +112,39 @@ export default function HomePage() {
                 ].map(({ value, label, desc }) => (
                   <div
                     key={label}
-                    className="p-5 rounded-2xl bg-blue-950/40 border border-blue-900/50 backdrop-blur-sm"
+                    className="p-5 rounded-2xl bg-[#062238]/60 border border-cyan-500/25 backdrop-blur-sm shadow-lg"
                   >
-                    <p className="text-2xl sm:text-3xl font-black text-amber-400">{value}</p>
+                    <p className="text-2xl sm:text-3xl font-black text-cyan-300">{value}</p>
                     <p className="text-white font-bold text-sm mt-0.5">{label}</p>
-                    <p className="text-blue-300/70 text-xs mt-0.5">{desc}</p>
+                    <p className="text-cyan-200/70 text-xs mt-0.5">{desc}</p>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* CAMPUS CAROUSEL SHOWCASE SECTION */}
+        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#031524] via-[#051e33] to-[#031524] relative overflow-hidden border-b border-cyan-900/40">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-cyan-500/10 blur-[150px] rounded-full pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center space-y-3 mb-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-cyan-950/70 text-cyan-300 border border-cyan-500/40">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                <span>DBU Campus Photography</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                Debre Berhan University Campus Grounds
+              </h2>
+              <p className="text-cyan-100/80 text-base max-w-2xl mx-auto">
+                Take a visual tour of our scenic academic corridors, state-of-the-art facilities,
+                and perimeter gates secured around the clock.
+              </p>
+            </div>
+
+            {/* The Campus Carousel */}
+            <CampusCarousel />
           </div>
         </section>
 
@@ -128,7 +154,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
               How Campus Gate Clearance Works
             </h2>
-            <p className="text-blue-200/80 text-base max-w-2xl mx-auto">
+            <p className="text-cyan-100/80 text-base max-w-2xl mx-auto">
               Our 3-step digital chain of custody eliminates paper gate passes and guarantees zero
               unauthorized asset removal.
             </p>
@@ -157,36 +183,36 @@ export default function HomePage() {
             ].map(({ step, title, desc, icon: Icon }) => (
               <div
                 key={step}
-                className="relative p-8 rounded-3xl bg-blue-950/30 border border-blue-900/60 hover:border-amber-400/40 transition-all group"
+                className="relative p-8 rounded-3xl bg-[#062238]/60 border border-cyan-500/30 hover:border-cyan-400 transition-all group shadow-lg shadow-cyan-950/20"
               >
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-4xl font-black text-amber-400/40 group-hover:text-amber-400 transition-colors font-mono">
+                  <span className="text-4xl font-black text-cyan-400/40 group-hover:text-cyan-300 transition-colors font-mono">
                     {step}
                   </span>
-                  <div className="w-12 h-12 rounded-2xl bg-blue-900/50 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-2xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
-                <p className="text-blue-200/70 text-sm leading-relaxed">{desc}</p>
+                <p className="text-cyan-100/70 text-sm leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* CAMPUS GATE CHECKPOINTS */}
-        <section className="py-20 bg-[#071324] border-t border-b border-blue-900/50">
+        <section className="py-20 bg-[#041a2c] border-t border-b border-cyan-900/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-amber-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-cyan-400">
                   Active Security Network
                 </span>
                 <h2 className="text-3xl font-black text-white tracking-tight mt-1">
                   Connected Campus Checkpoints
                 </h2>
               </div>
-              <p className="text-blue-200/70 text-sm max-w-md">
+              <p className="text-cyan-100/70 text-sm max-w-md">
                 Every gate checkpoint operates with synchronized real-time database replication to
                 prevent cross-gate asset smuggling.
               </p>
@@ -225,25 +251,25 @@ export default function HomePage() {
               ].map(({ name, zone, hours, status, desc }) => (
                 <div
                   key={name}
-                  className="p-6 rounded-2xl bg-blue-950/40 border border-blue-900/60 flex flex-col justify-between space-y-4"
+                  className="p-6 rounded-2xl bg-[#062238]/60 border border-cyan-500/25 flex flex-col justify-between space-y-4 shadow-md"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-2">
                       <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                         {status}
                       </span>
-                      <span className="text-[11px] font-semibold text-blue-300">{hours}</span>
+                      <span className="text-[11px] font-semibold text-cyan-200">{hours}</span>
                     </div>
                     <h4 className="text-base font-bold text-white">{name}</h4>
-                    <p className="text-amber-400 text-xs font-semibold mt-0.5">{zone}</p>
-                    <p className="text-blue-200/70 text-xs mt-2 leading-relaxed">{desc}</p>
+                    <p className="text-cyan-300 text-xs font-semibold mt-0.5">{zone}</p>
+                    <p className="text-cyan-100/70 text-xs mt-2 leading-relaxed">{desc}</p>
                   </div>
-                  <div className="pt-3 border-t border-blue-900/50 flex items-center justify-between text-[11px] text-blue-300/80">
+                  <div className="pt-3 border-t border-cyan-900/40 flex items-center justify-between text-[11px] text-cyan-200/80">
                     <span className="flex items-center gap-1">
-                      <Building2 className="w-3.5 h-3.5" /> DBU Terminal
+                      <Building2 className="w-3.5 h-3.5 text-cyan-400" /> DBU Terminal
                     </span>
-                    <span className="font-mono text-amber-300">Terminal Linked</span>
+                    <span className="font-mono text-cyan-300">Terminal Linked</span>
                   </div>
                 </div>
               ))}
@@ -255,14 +281,14 @@ export default function HomePage() {
         <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-900/60 text-blue-200 border border-blue-700/60">
-                <Lock className="w-3.5 h-3.5 text-amber-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-cyan-950/60 text-cyan-200 border border-cyan-500/40">
+                <Lock className="w-3.5 h-3.5 text-cyan-400" />
                 Enterprise Security Armor
               </div>
               <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
                 Engineered for Absolute Integrity & Institutional Compliance
               </h2>
-              <p className="text-blue-200/80 text-base leading-relaxed">
+              <p className="text-cyan-100/80 text-base leading-relaxed">
                 The DBU Gate Security System is fortified with industry-leading safeguards. Every
                 transaction is secured against brute-force attacks, token hijacking, and unauthorized
                 privilege escalations.
@@ -284,42 +310,42 @@ export default function HomePage() {
                   },
                 ].map(({ title, desc }) => (
                   <div key={title} className="flex gap-4">
-                    <div className="w-6 h-6 rounded-full bg-amber-400/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-full bg-cyan-400/20 text-cyan-300 flex items-center justify-center shrink-0 mt-0.5 border border-cyan-400/30">
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm">{title}</p>
-                      <p className="text-blue-200/70 text-xs mt-0.5 leading-relaxed">{desc}</p>
+                      <p className="text-cyan-100/70 text-xs mt-0.5 leading-relaxed">{desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Right card graphic */}
-            <div className="p-8 rounded-3xl bg-gradient-to-b from-blue-950/60 to-[#0c1f38] border border-blue-800/60 shadow-2xl space-y-6">
-              <div className="flex items-center justify-between border-b border-blue-800/60 pb-4">
+            {/* Right card graphic in water blue */}
+            <div className="p-8 rounded-3xl bg-gradient-to-b from-[#06243d] to-[#041a2c] border border-cyan-500/30 shadow-2xl space-y-6">
+              <div className="flex items-center justify-between border-b border-cyan-800/40 pb-4">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="text-xs font-mono text-blue-300 ml-2">dbu-security-core</span>
+                  <div className="w-3 h-3 rounded-full bg-emerald-400" />
+                  <span className="text-xs font-mono text-cyan-300 ml-2">dbu-security-core</span>
                 </div>
-                <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/40">
+                <span className="text-[11px] font-mono text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded border border-cyan-500/40">
                   ENCRYPTION ACTIVE
                 </span>
               </div>
 
-              <div className="font-mono text-xs space-y-2 text-blue-200/80">
-                <p className="text-blue-400 font-bold">// Security Protocol Handshake</p>
+              <div className="font-mono text-xs space-y-2 text-cyan-100/80">
+                <p className="text-cyan-400 font-bold">// Security Protocol Handshake</p>
                 <p>
-                  &gt; AUTH_MECHANISM: <span className="text-amber-300">JWT / SHA-256</span>
+                  &gt; AUTH_MECHANISM: <span className="text-cyan-300">JWT / SHA-256</span>
                 </p>
                 <p>
-                  &gt; RATE_LIMIT: <span className="text-amber-300">Active (10 req/15m auth, 120/m scan)</span>
+                  &gt; RATE_LIMIT: <span className="text-cyan-300">Active (10 req/15m auth, 120/m scan)</span>
                 </p>
                 <p>
-                  &gt; ACCESS_POLICY: <span className="text-amber-300">RBAC (Admin, Assistant, Guest)</span>
+                  &gt; ACCESS_POLICY: <span className="text-cyan-300">RBAC (Admin, Assistant, Guest)</span>
                 </p>
                 <p>
                   &gt; GATE_LATENCY: <span className="text-emerald-400">42ms avg response</span>
@@ -329,14 +355,14 @@ export default function HomePage() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-blue-900/30 border border-blue-800/50 flex items-center justify-between">
+              <div className="p-4 rounded-xl bg-cyan-950/50 border border-cyan-500/30 flex items-center justify-between">
                 <div>
                   <p className="text-xs font-bold text-white">Need Security Terminal Access?</p>
-                  <p className="text-[11px] text-blue-300">Authorized personnel only</p>
+                  <p className="text-[11px] text-cyan-200">Authorized personnel only</p>
                 </div>
                 <Link
                   href="/login"
-                  className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#081528] font-bold text-xs shadow transition-colors"
+                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-sky-400 hover:from-cyan-300 hover:to-sky-300 text-[#02182b] font-bold text-xs shadow transition-all"
                 >
                   Sign In
                 </Link>
